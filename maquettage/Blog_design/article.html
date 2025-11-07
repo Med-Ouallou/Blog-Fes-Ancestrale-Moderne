@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - Fès Creative Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gold-accent {
+            color: #d4af37;
+        }
+        
+        .transition-smooth {
+            transition: all 0.3s ease;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-mosque text-3xl gold-accent"></i>
+                    <h1 class="text-2xl font-bold text-gray-800">Fès Creative Blog</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-yellow-600 transition-smooth font-medium">Home</a>
+                    <a href="index.html#articles" class="text-gray-700 hover:text-yellow-600 transition-smooth font-medium">Explore</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-yellow-600 transition-smooth font-medium">About</a>
+                    <a href="admin.html" class="text-gray-700 hover:text-yellow-600 transition-smooth font-medium">Admin</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-3">
+                <a href="index.html" class="block text-gray-700 hover:text-yellow-600 transition-smooth">Home</a>
+                <a href="index.html#articles" class="block text-gray-700 hover:text-yellow-600 transition-smooth">Explore</a>
+                <a href="index.html#about" class="block text-gray-700 hover:text-yellow-600 transition-smooth">About</a>
+                <a href="admin.html" class="block text-gray-700 hover:text-yellow-600 transition-smooth">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <article class="pt-24 pb-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center text-yellow-600 hover:text-yellow-700 mb-8 transition-smooth">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Articles
+            </a>
+
+            <!-- Article Header -->
+            <div id="article-header" class="mb-8">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <!-- Article Image -->
+            <div id="article-image" class="mb-8">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="flex items-center space-x-4 mb-8 pb-8 border-b border-gray-200">
+                <span class="text-gray-700 font-medium">Share this article:</span>
+                <button onclick="shareArticle('facebook')" class="share-btn bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-smooth hover:bg-blue-700">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                <button onclick="shareArticle('twitter')" class="share-btn bg-sky-500 text-white w-10 h-10 rounded-full flex items-center justify-center transition-smooth hover:bg-sky-600">
+                    <i class="fab fa-twitter"></i>
+                </button>
+                <button onclick="shareArticle('linkedin')" class="share-btn bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition-smooth hover:bg-blue-800">
+                    <i class="fab fa-linkedin-in"></i>
+                </button>
+                <button onclick="copyLink()" class="share-btn bg-gray-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition-smooth hover:bg-gray-700">
+                    <i class="fas fa-link"></i>
+                </button>
+            </div>
+
+            <!-- Article Body -->
+            <div id="article-body" class="article-content text-gray-700 text-lg">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <!-- Related Articles -->
+            <div class="mt-16 pt-8 border-t border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">Related Articles</h2>
+                <div id="related-articles" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 gold-accent">Fès Creative Blog</h3>
+                    <p class="text-gray-400">Connecting tradition with innovation in the heart of Morocco's cultural capital.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 gold-accent">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-600 transition-smooth">Home</a></li>
+                        <li><a href="index.html#articles" class="text-gray-400 hover:text-yellow-600 transition-smooth">Articles</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-yellow-600 transition-smooth">About</a></li>
+                        <li><a href="admin.html" class="text-gray-400 hover:text-yellow-600 transition-smooth">Admin</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 gold-accent">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl text-gray-400 hover:text-yellow-600 transition-smooth"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl text-gray-400 hover:text-yellow-600 transition-smooth"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl text-gray-400 hover:text-yellow-600 transition-smooth"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl text-gray-400 hover:text-yellow-600 transition-smooth"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="mt-4 text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i>
+                        contact@fescreative.ma
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Fès Creative Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg hidden transition-smooth">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="toast-message">Link copied to clipboard!</span>
+    </div>
+
+    <script>
+        // Extended article data with full content
+        const articleDatabase = {
+            1: {
+                id: 1,
+                title: "The Art of Fez Pottery: 700 Years of Tradition",
+                category: "Heritage",
+                image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=1200&q=80",
+                excerpt: "Discover how master ceramists in Fès continue to shape clay using techniques passed down through generations.",
+                date: "2024-11-05",
+                author: "Fatima Zahra",
+                content: `
+                    <p>In the heart of Fès's ancient medina, where narrow cobblestone streets wind through centuries of history, the art of pottery making continues to thrive as it has for over 700 years. The rhythmic sound of potter's wheels and the earthy scent of wet clay have been constant companions to the city's artisans, connecting past and present in an unbroken chain of craftsmanship.</p>
+
+                    <p>Master ceramist Hassan El Fassi learned his craft from his father, who learned from his father before him. "When I work with clay," Hassan explains, "I feel the hands of all my ancestors guiding mine. Each piece we create carries the weight of our history." His workshop, tucked away in the Pottery Quarter, houses kilns that have been firing ceramics since the 14th century.</p>
+
+                    <p>The traditional Fès pottery process begins with locally sourced clay, mixed with specific ratios of minerals that give the finished pieces their characteristic strength and luster. After shaping on the wheel, pieces are left to dry naturally, a process that can take weeks depending on the size and weather conditions. The most crucial stage is the glazing, where artisans apply the famous Fès blue, a color derived from cobalt that has become synonymous with Moroccan ceramics.</p>
+
+                    <p>What makes Fès pottery truly unique is the intricate geometric patterns and Arabic calligraphy that adorn each piece. These designs are not merely decorative; they carry deep cultural and spiritual significance, often incorporating verses from poetry or blessings for the home. Young apprentices spend years learning to paint these patterns freehand, developing the steady hand and keen eye necessary to maintain the tradition's high standards.</p>
+
+                    <p>Despite the challenges of modernization and mass production, the pottery workshops of Fès remain committed to their ancestral techniques. They've found ways to adapt without compromising their craft, creating contemporary designs that honor traditional methods while appealing to modern tastes. This balance ensures that the art of Fès pottery will continue to thrive for generations to come.</p>
+
+                    <p>Today, these ceramic masterpieces grace homes around the world, each one a tangible link to Fès's rich cultural heritage. As tourists watch artisans at work in the medina, they witness not just the creation of beautiful objects, but the preservation of a living tradition that defines the soul of this ancient city.</p>
+                `
+            },
+            2: {
+                id: 2,
+                title: "Modern Zellige: Digital Patterns Meet Ancient Tiles",
+                category: "Innovation",
+                image: "https://images.unsplash.com/photo-1582582621959-48d27397dc69?w=1200&q=80",
+                excerpt: "Young designers are reimagining traditional zellige mosaics through digital art and 3D printing.",
+                date: "2024-11-03",
+                author: "Karim Bennis",
+                content: `
+                    <p>The ancient art of zellige, Morocco's iconic mosaic tilework, is experiencing a renaissance in Fès as a new generation of designers merge traditional craftsmanship with cutting-edge digital technology. What emerges is a fascinating dialogue between centuries-old techniques and 21st-century innovation.</p>
+
+                    <p>Amina Bennani, a 28-year-old digital artist and designer, exemplifies this movement. Working from her studio overlooking the medina, she uses advanced software to create zellige patterns that would have been impossible to conceive just decades ago. "I grew up surrounded by zellige," Amina explains. "My grandfather was a master craftsman. Now I'm exploring what these patterns can become when freed from physical constraints."</p>
+
+                    <p>Traditional zellige involves hand-cutting glazed terracotta tiles into geometric shapes, then assembling them into intricate patterns. It's a labor-intensive process that requires exceptional skill and patience. Amina's approach respects this tradition while pushing its boundaries. She digitizes classic patterns, then manipulates them using algorithms to generate new designs that maintain the mathematical precision and aesthetic harmony of the originals.</p>
+
+                    <p>The innovation doesn't stop at design. Several workshops in Fès are now experimenting with 3D printing technology to create zellige pieces with unprecedented complexity. These modern tiles can feature multi-layered depth, impossible angles, and interlocking systems that expand what's architecturally achievable. Yet they still honor the core principles of zellige: geometric precision, vibrant color, and the play of light across textured surfaces.</p>
+
+                    <p>This technological evolution has sparked debate within the artisan community. Purists worry about losing the soul of handcrafted work, while progressives argue that innovation has always been part of Morocco's artistic heritage. The most successful projects find middle ground, using digital tools for design and precision cutting while maintaining hand-assembly and finishing by skilled artisans.</p>
+
+                    <p>Perhaps most exciting is how these innovations are making zellige accessible to new markets and applications. From interactive digital installations in museums to sustainable architectural projects using recycled materials, modern zellige is finding homes far beyond traditional contexts while keeping the craft relevant and economically viable for future generations of artisans.</p>
+                `
+            },
+            3: {
+                id: 3,
+                title: "Leather Tanning in the Medina: A Sustainable Future",
+                category: "Heritage",
+                image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=1200&q=80",
+                excerpt: "How Fès's iconic tanneries are adapting eco-friendly practices while preserving ancestral methods.",
+                date: "2024-11-01",
+                author: "Omar Tazi",
+                content: `
+                    <p>The Chouara Tannery in Fès el-Bali stands as one of the world's oldest working tanneries, its honeycomb of stone vats filled with vibrant dyes creating a scene that has barely changed since medieval times. Yet behind this timeless facade, a quiet revolution is taking place as traditional tanners work to make their ancient craft sustainable for the modern world.</p>
+
+                    <p>For centuries, the tanning process has relied on natural materials: pigeon droppings for softening hides, cow urine for cleaning, and natural dyes from plants like poppy, indigo, and henna. While these traditional methods are indeed organic, the process has historically created environmental challenges, particularly regarding water usage and waste disposal in the densely packed medina.</p>
+
+                    <p>Enter a new generation of tanners who are reimagining their craft through the lens of environmental stewardship. Under the leadership of cooperative members like Youssef Alaoui, tanneries are implementing water recycling systems that reduce consumption by up to 60%. "We're not abandoning our ancestors' wisdom," Youssef explains. "We're building on it with modern understanding of environmental science."</p>
+
+                    <p>The transformation extends to waste management. Tanneries now work with local farmers to compost organic waste, turning what was once pollution into nutrient-rich soil amendments. Some workshops have installed solar panels to reduce energy consumption, while others are experimenting with closed-loop systems that recycle water and capture potentially harmful runoff.</p>
+
+                    <p>Perhaps most significantly, these sustainable practices are being marketed as selling points to conscious consumers. Leather products certified as traditionally made using eco-friendly methods command premium prices in international markets, creating economic incentives for sustainability. European and North American buyers increasingly seek out these authenticated, environmentally responsible Moroccan leather goods.</p>
+
+                    <p>The tanneries of Fès demonstrate that tradition and sustainability aren't opposing forces but natural partners. By honoring ancestral knowledge while embracing modern environmental consciousness, these artisans are ensuring their craft remains viable and vibrant for centuries to come, proving that the old ways and new thinking can work hand in hand.</p>
+                `
+            },
+            4: {
+                id: 4,
+                title: "The New Generation of Textile Designers",
+                category: "Innovation",
+                image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
+                excerpt: "Meet the young artisans blending traditional Moroccan weaving with contemporary fashion.",
+                date: "2024-10-28",
+                author: "Salma Idrissi",
+                content: `
+                    <p>In a sun-drenched atelier in Fès's new town, young textile designer Laila Bennani threads her loom with locally sourced wool, preparing to create a piece that bridges generations. Around her, traditional Moroccan patterns meet contemporary silhouettes, and ancient techniques serve modern aesthetics. This is the new face of Moroccan textile design.</p>
+
+                    <p>Laila represents a growing movement of designers who refuse to choose between honoring their heritage and pursuing innovation. "My grandmother taught me to weave when I was seven," she recalls. "Now I'm using those same techniques to create pieces for Paris Fashion Week. There's no contradiction there – it's all part of the same story."</p>
+
+                    <p>Traditional Moroccan weaving, particularly from the Fès region, is known for its intricate patterns, vibrant colors, and exceptional quality. Techniques like hand-knotting, natural dyeing, and specialized looms have been passed down through generations of predominantly female artisans. These methods produce textiles with unique textures and durability that machine production simply cannot replicate.</p>
+
+                    <p>What's changing is how these textiles are being conceptualized and marketed. Contemporary designers are deconstructing traditional patterns, experimenting with scale, color combinations, and applications that their grandmothers never imagined. A classic Berber motif might appear oversized on a minimalist coat, or traditional wedding blanket patterns could be reinterpreted in monochromatic palettes for modern interiors.</p>
+
+                    <p>This movement isn't just about aesthetics – it's about economic empowerment. By creating products that appeal to international markets while maintaining authentic craftsmanship, young designers are generating new income streams for traditional artisan communities. Cooperatives of weavers in the Fès region report increased demand and better prices for their work as it reaches global consumers through these contemporary channels.</p>
+
+                    <p>Social media has played a crucial role in this renaissance. Designers like Laila document their creative process online, sharing everything from sourcing organic wool in the Middle Atlas to collaborating with elderly master weavers. This transparency builds appreciation for the skill and time involved in each piece, while connecting consumers directly with the artisans and their stories. The result is a thriving ecosystem where tradition fuels innovation, and innovation ensures tradition's survival.</p>
+                `
+            },
+            5: {
+                id: 5,
+                title: "Metalwork Masters: From Souks to Global Markets",
+                category: "Design",
+                image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=1200&q=80",
+                excerpt: "Fès metalworkers are crafting bespoke pieces that honor tradition while reaching international audiences.",
+                date: "2024-10-25",
+                author: "Mehdi Fassi",
+                content: `
+                    <p>The sound of hammers on metal has echoed through Fès's metalwork souks for over a millennium. In workshops barely wider than a person's armspan, master craftsmen continue the ancient art of working brass, copper, and silver into objects of extraordinary beauty and utility. Today, these workshops are experiencing an unexpected renaissance as global markets discover the value of handcrafted metalwork.</p>
+
+                    <p>Mohammed Filali's workshop in the Nejjarine district has been operated by his family for eight generations. Surrounded by gleaming lanterns, intricate trays, and delicate jewelry boxes, he practices techniques that haven't changed significantly since the Middle Ages. "Each strike of the hammer must be precise," Mohammed explains, demonstrating the creation of a traditional Moroccan lantern. "The metal remembers every touch. It takes years to develop the feel."</p>
+
+                    <p>Traditional Fès metalwork employs several specialized techniques. Repoussé involves hammering metal from the reverse side to create raised designs. Engraving adds fine details and patterns. Inlay work incorporates contrasting metals or enamel. The most prestigious pieces combine all these techniques, resulting in objects that are as much sculpture as they are functional items.</p>
+
+                    <p>What's changed dramatically is the market for these pieces. International interior designers increasingly specify authentic handmade metalwork for high-end projects, from luxury hotels to private residences. Online platforms have connected Fès artisans directly with customers worldwide, bypassing traditional export barriers and ensuring artisans receive fair compensation for their skilled work.</p>
+
+                    <p>This global reach has inspired creative evolution within the tradition. While maintaining core techniques, artisans now collaborate with designers to create pieces that blend Moroccan aesthetic sensibilities with contemporary functional needs. A traditional tea serving set might be reimagined with sleeker proportions. Classic lantern designs could incorporate LED lighting systems. The craft evolves while remaining true to its roots.</p>
+
+                    <p>Perhaps most importantly, this economic viability has attracted young apprentices back to the workshops. For years, metalworking faced an uncertain future as young people pursued modern careers. Now, with artisans earning respectable incomes and gaining international recognition, the next generation sees promise in these ancient crafts. The hammers will continue to ring in the Fès souks for generations to come.</p>
+                `
+            },
+            6: {
+                id: 6,
+                title: "Calligraphy Revival: Ancient Scripts in Modern Spaces",
+                category: "Design",
+                image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=1200&q=80",
+                excerpt: "How Arabic calligraphy is finding new life in contemporary architecture and interior design.",
+                date: "2024-10-22",
+                author: "Yasmine Alami",
+                content: `
+                    <p>Arabic calligraphy, once primarily the domain of religious texts and formal documents, is experiencing a remarkable renaissance in contemporary design. In Fès, where calligraphic traditions run deep, artists are reimagining this ancient art form for modern architectural and interior applications, creating works that honor tradition while speaking to contemporary sensibilities.</p>
+
+                    <p>Master calligrapher Ahmed Mernissi works from a studio filled with historic manuscripts, traditional tools, and surprisingly, a digital tablet. "Calligraphy is about harmony, proportion, and spiritual expression," he explains. "Those principles remain constant whether I'm working with a reed pen on parchment or designing a digital installation for a modern building."</p>
+
+                    <p>Traditional Arabic calligraphy in Morocco primarily uses three scripts: Kufic, with its angular geometric forms; Maghrebi, the flowing script particular to North African tradition; and Thuluth, known for its elegant proportions. Each script carries different aesthetic and cultural associations, and mastering them requires years of disciplined practice under a master's guidance.</p>
+
+                    <p>Contemporary applications are breathtakingly diverse. Architects commission large-scale calligraphic works as focal points in lobbies and public spaces. Interior designers incorporate calligraphic elements into everything from wall treatments to furniture design. Digital artists create animated calligraphic pieces that move and transform, exploring the script's kinetic possibilities. Some artists even experiment with calligraphic typography for branding and graphic design, creating identities that feel both rooted and contemporary.</p>
+
+                    <p>This revival isn't purely aesthetic. Many contemporary calligraphic works incorporate meaningful texts – poetry, proverbs, or philosophical statements – inviting viewers to engage not just with the visual beauty but with the content's deeper meaning. In an increasingly globalized world, these works serve as anchors to cultural identity while demonstrating the script's universal appeal.</p>
+
+                    <p>Educational institutions in Fès are responding to renewed interest by expanding calligraphy programs. Young artists are learning traditional techniques while being encouraged to experiment and innovate. Workshops regularly host international students, spreading appreciation for this art form globally. The result is a vibrant, evolving tradition that honors its past while actively shaping its future, proving that ancient art forms can thrive in contemporary contexts when approached with respect, creativity, and vision.</p>
+                `
+            }
+        };
+
+        // Get article ID from URL
+        function getArticleId() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id')) || 1;
+        }
+
+        // Load article content
+        function loadArticle() {
+            const articleId = getArticleId();
+            const article = articleDatabase[articleId];
+
+            if (!article) {
+                document.getElementById('article-header').innerHTML = '<h1 class="text-4xl font-bold text-gray-800">Article not found</h1>';
+                return;
+            }
+
+            // Load header
+            document.getElementById('article-header').innerHTML = `
+                <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                    ${article.category}
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">${article.title}</h1>
+                <div class="flex items-center text-gray-600 space-x-4">
+                    <span><i class="far fa-user mr-2"></i>${article.author}</span>
+                    <span><i class="far fa-calendar mr-2"></i>${article.date}</span>
+                </div>
+            `;
+
+            // Load image
+            document.getElementById('article-image').innerHTML = `
+                <img src="${article.image}" alt="${article.title}" class="w-full h-96 object-cover rounded-lg shadow-lg">
+            `;
+
+            // Load content
+            document.getElementById('article-body').innerHTML = article.content;
+
+            // Load related articles
+            loadRelatedArticles(articleId, article.category);
+        }
+
+        // Load related articles
+        function loadRelatedArticles(currentId, category) {
+            const related = Object.values(articleDatabase)
+                .filter(a => a.id !== currentId && a.category === category)
+                .slice(0, 2);
+
+            const container = document.getElementById('related-articles');
+            container.innerHTML = '';
+
+            related.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg overflow-hidden shadow-lg transition-smooth hover:shadow-xl cursor-pointer';
+                card.onclick = () => {
+                    window.location.href = `article.html?id=${article.id}`;
+                };
+                
+                card.innerHTML = `
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                            ${article.category}
+                        </span>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">${article.title}</h3>
+                        <p class="text-gray-600 text-sm">${article.excerpt}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Share functions
+        function shareArticle(platform) {
+            const url = window.location.href;
+            const title = document.querySelector('h1').textContent;
+            
+            let shareUrl;
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast('Link copied to clipboard!');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Load content when page loads
+        window.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+</html>
