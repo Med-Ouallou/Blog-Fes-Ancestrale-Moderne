@@ -1,4 +1,4 @@
-## 🕌 Context
+## 🕌 Context — *Updated for Creator as Article Author*
 
 🎯 **1. Project Context**
 Collaborative blog dedicated to connecting **traditional craftsmanship** and **modern innovations** in **Fès**.
@@ -23,9 +23,13 @@ Framework: **Tailwind CSS (via CDN)** + soft animations
 * Articles / Videos
 * Article Detail
 
+**Creator Area:**
+
+* Create & Manage Personal Articles
+
 **Admin Area:**
 
-* Manage Content (CRUD simulation)
+* Review / Validate Submitted Articles (simulation only)
 
 ---
 
@@ -33,7 +37,7 @@ Framework: **Tailwind CSS (via CDN)** + soft animations
 
 | Section             | Description                                                                   |
 | ------------------- | ----------------------------------------------------------------------------- |
-| Header + Navigation | Logo “Fès Creative Blog” + menu (Home, Explore, About, Admin)                 |
+| Header + Navigation | Logo “Fès Creative Blog” + menu (Home, Explore, About, Creator, Admin)        |
 | Hero Section        | Background photo of Fès Medina with slogan “Where Tradition Meets Innovation” |
 | Article Grid        | Display latest posts (title, image, short text)                               |
 | Featured Creators   | Highlight young artisans or creators with photo + tagline                     |
@@ -48,7 +52,8 @@ Framework: **Tailwind CSS (via CDN)** + soft animations
 * Smooth transitions and hover effects
 * Each article has “Read More” → leads to detail page
 * Article page includes: title, media (image/video), description, and share buttons
-* Admin page: simple mockup (add/edit/delete buttons — simulation only)
+* Creator page: simple mockup form to **add or edit articles** (stored locally or via JSON simulation)
+* Admin page: view or validate submitted articles (simulation only)
 
 ---
 
@@ -69,12 +74,13 @@ Framework: **Tailwind CSS (via CDN)** + soft animations
 
   * `index.html` → Home
   * `article.html` → Article Detail
-  * `admin.html` → Manage Content
-* Optional: `style.css` for minor custom styles
+  * `creator.html` → Create & Manage Articles
+  * `admin.html` → Review / Validate Articles
+  * Optional: `style.css` for minor custom styles
 
 ---
 
-📊 **8. Use Case Diagram — MVP: Fès Creative Blog**
+📊 **8. Use Case Diagram — MVP: Fès Creative Blog (Updated)**
 
 ```plantuml
 @startuml
@@ -87,13 +93,15 @@ actor "Administrator" as Admin
 rectangle "Fès Creative Blog (MVP)" {
 
   (View articles and videos) as UC1
-  (Read an article or watch a video in detail) as UC2
-  (Share an article or video) as UC4
-  (Manage published content) as UC5
+  (Read an article or watch a video) as UC2
+  (Share an article or video) as UC3
+  (Create and manage personal articles) as UC4
+  (Validate or highlight articles) as UC5
 }
 
 Tourist --> UC1
 Tourist --> UC2
+Tourist --> UC3
 
 Creator --> UC4
 
@@ -104,24 +112,28 @@ Admin --> UC5
 
 ---
 
-🗂️ **9. Site Map — Blog “Fès Creative Blog”**
+🗂️ **9. Site Map — Blog “Fès Creative Blog” (Updated)**
 
 ### 🌍 Public Space
 
-| Page                 | Description                                                          |
-| -------------------- | -------------------------------------------------------------------- |
-| Home                 | Landing page featuring the latest articles and videos + hero section |
-| Articles / Videos    | Grid view with filters (heritage, design, innovation)                |
-| Article Detail       | Full article with title, image, description, and share button        |
-| Favorites (optional) | Saved articles by the user (localStorage)                            |
-| About (optional)     | Vision, mission, and story of the blog                               |
+| Page              | Description                                                   |
+| ----------------- | ------------------------------------------------------------- |
+| Home              | Landing page featuring latest articles and videos             |
+| Articles / Videos | Grid view with filters (heritage, design, innovation)         |
+| Article Detail    | Full article with title, image, description, and share button |
+| About (optional)  | Vision, mission, and story of the blog                        |
+
+### 🧑‍🎨 Creator Space
+
+| Page          | Description                                      |
+| ------------- | ------------------------------------------------ |
+| Creator Panel | Create, edit, or delete personal articles (mock) |
 
 ### 🔐 Admin Space
 
-| Page            | Description                                     |
-| --------------- | ----------------------------------------------- |
-| Admin Dashboard | Summary of published content                    |
-| Manage Content  | CRUD simulation: add/edit/delete dummy articles |
+| Page            | Description                                        |
+| --------------- | -------------------------------------------------- |
+| Admin Dashboard | Review or validate submitted articles (simulation) |
 
 ---
 
@@ -129,11 +141,21 @@ Admin --> UC5
 
 ✅ View and read articles
 ✅ Share article link
-✅ Manage content (Admin only)
+✅ **Creator adds and manages own content**
+✅ **Admin validates and highlights posts**
 ✅ Responsive Tailwind design
 ✅ Elegant cultural theme blending tradition and innovation
 
 ---
 
-Would you like me to **add an example of color palette + typography suggestion** (for Claude to make the design visually richer and more “Fès-inspired”)?
-It can help it generate more realistic UI.
+📌 **Summary of Roles:**
+
+| Role                  | Description                               | Permissions                |
+| --------------------- | ----------------------------------------- | -------------------------- |
+| **Tourist (Visitor)** | Reads & shares content                    | View / Share               |
+| **Creator**           | Writes and manages articles               | Create / Edit / Delete own |
+| **Admin**             | Validates, highlights, or removes content | Moderate / Review          |
+
+---
+
+🌈 Would you like me to **add the color palette & typography recommendations** (Arabic-inspired + modern sans-serif mix) to make the design guidelines fully complete for the next design step?

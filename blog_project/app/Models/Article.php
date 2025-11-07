@@ -10,7 +10,7 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'title', 'slug', 'excerpt', 'content'
+        'title', 'content', 'user_id'
     ];
 
     public function user(){
@@ -18,6 +18,6 @@ class Article extends Model
     }
 
     public function tags(){
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tags::class ,'article_tags');
     }
 }
