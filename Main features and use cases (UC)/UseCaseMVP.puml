@@ -1,0 +1,23 @@
+@startuml
+title Use Case Diagram - MVP: Fès Creative Blog
+
+actor "Cultural Tourist" as Tourist
+actor "Creator" as Creator
+actor "Administrator" as Admin
+
+rectangle "Fès Creative Blog (MVP)" {
+
+  (View articles and videos) as UC1
+  (Read an article or watch a video in detail) as UC2
+  (Share an article or video) as UC4
+  (Manage published content) as UC5
+}
+
+Tourist -- UC1
+Tourist -- UC2
+
+Creator -- UC4
+
+Admin -- UC5
+
+@enduml
