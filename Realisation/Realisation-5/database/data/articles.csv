@@ -1,0 +1,6 @@
+title,content,status,user_id,category_ids
+"How to Get Started with Laravel","<p>Laravel is a powerful PHP framework. Here's how to install it:</p><ul><li>Install Composer</li><li>Run composer create-project laravel/laravel example-app</li><li>Configure your .env file</li></ul><p>Start building!</p>","published","1","2,3"
+"The Future of Web Development","<h2>Trends in 2023</h2><p>AI integration, PWAs, and more. <a href='https://example.com'>Read more</a>.</p>","draft","1","1,4"
+"Boosting Productivity as a Developer","<p>Tips include: <strong>Time blocking</strong>, <em>pomodoro technique</em>, and regular breaks.</p>","published","1","5"
+"Understanding Eloquent ORM","<p>Eloquent makes database interactions easy. Example: <code>User::find(1);</code></p>","published","1","2,3"
+"Building a Blog with Laravel","<p>Step-by-step guide: Migrations, Models, Controllers, and Views.</p>","draft","1","3,4"
